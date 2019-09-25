@@ -5,7 +5,7 @@
   "main": "lib/seneca-service.js",
   "scripts": {
     "pretest": "eslint .",
-    "prepublish": "npm test && npm run build && npm version",
+    "prepublish": "npm test && npm version",
     "test": "jest -u",
     "build": "backpack build",
     "start": "backpack"
@@ -72,7 +72,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "[[ -z $(git ls-files . --exclude-standard --others) ]] && npm test || git status"
+      "pre-commit": "[[ -z $(git ls-files . --exclude-standard --others) ]] && npm test && npm run build || git status"
     }
   },
   "dependencies": {
