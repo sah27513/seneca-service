@@ -1,4 +1,5 @@
 // Import the Library
-import * as senecaService from "lib";
+import * as lib from "lib";
+const seneca_service = lib;
 
-export default senecaService;
+export default seneca_service;

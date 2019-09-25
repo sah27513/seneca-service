@@ -4,3 +4,6 @@ coverage
 # Ignore Uglified Script
 build
 lib
+
+# Ignore Library Export
+src/index.js
