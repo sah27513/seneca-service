@@ -1,5 +1,4 @@
 const path = require("path");
-const _ = require("lodash");
 
 module.exports = {
   webpack: config => {
