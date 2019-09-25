@@ -1,0 +1,6 @@
+# Ignore Test Coverage Reports
+coverage
+
+# Ignore Uglified Script
+build
+lib

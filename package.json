@@ -1,0 +1,95 @@
+{
+  "name": "seneca-service",
+  "version": "0.0.1",
+  "description": "Seneca Service Utilities",
+  "main": "lib/seneca-service.js",
+  "scripts": {
+    "pretest": "eslint .",
+    "prepublish": "npm test && npm run build && npm version",
+    "test": "jest -u",
+    "build": "backpack build",
+    "start": "backpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sah27513/seneca-service.git"
+  },
+  "keywords": [
+    "SenecaJS",
+    "Microservice"
+  ],
+  "author": "Stephen Halliburton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sah27513/seneca-service/issues"
+  },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "files": [
+    "lib/*"
+  ],
+  "homepage": "https://github.com/sah27513/seneca-service#readme",
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/**/index.js"
+    ],
+    "moduleNameMapper": {
+      "^(lib)$": "<rootDir>/src/lib/index.js",
+      "^lib/(.*)$": "<rootDir>/src/lib/$1",
+      "^config/(.*)$": "<rootDir>/src/config/$1",
+      "^test/(.*)$": "<rootDir>/test/$1"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "xo",
+      "prettier"
+    ],
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": "error"
+    },
+    "plugins": [
+      "prettier"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "[[ -z $(git ls-files . --exclude-standard --others) ]] && npm test || git status"
+    }
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "seneca": "^3.16.0"
+  },
+  "devDependencies": {
+    "babel-jest": "^24.9.0",
+    "backpack-core": "^0.8.4",
+    "coveralls": "^3.0.6",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-xo": "^0.27.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.0.5",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.3.0",
+    "prettier": "^1.18.2"
+  }
+}
