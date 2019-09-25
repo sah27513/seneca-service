@@ -2,6 +2,7 @@
  * @module SenecaConfig
  */
 import Seneca from "seneca";
+import { logger } from "lib/logger";
 import * as service from "lib/seneca";
 
 /**
@@ -11,16 +12,14 @@ import * as service from "lib/seneca";
  */
 export const config = options => {
   // Create a new Instance of Seneca
-  const seneca = new Seneca({
-    log: {
-      map: [
-        {
-          level: "all",
-          handler: "print"
-        }
-      ]
+  const seneca = new Seneca(
+    options.seneca || {
+      ...options.seneca,
+      internal: {
+        logger
+      }
     }
-  });
+  );
 
   // Load the Seneca Plugins
   service.load(options.transport, { plugins: options.plugins, seneca });
